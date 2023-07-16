@@ -1,11 +1,12 @@
-import leitura
+import leitura 
+import profundidade 
 leitura.printAutomatons()
 leitura.printarCidades()
 contador = 0
 origem = ""
 destino = ""
 
-print("Digite o nome da cidade corretamente!\n")
+
 def getString(inputTexto,validar):
     texto = input(inputTexto)
     flag = True
@@ -26,8 +27,10 @@ def getString(inputTexto,validar):
 
 origem = getString("Digite sua posicao atual: ","")
 destino = getString("Digite seu destino: ",origem)
-
+# origem='SimaoDias'
+# destino='Capela'
 # destino = input("Digite seu destino: ")
 
-print(origem)
-print(destino)
+p = profundidade.Profundidade(origem,destino, leitura.automatons)
+p.rodarAutomato()
+

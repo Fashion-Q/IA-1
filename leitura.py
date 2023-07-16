@@ -22,7 +22,7 @@ root = tree.getroot()
 automatons = []
 
 for states in root.iter('state'):
-    automatons.append(Automaton(states.get("id"),states.get("name"),states.find("x").text,states.find("y").text,states.find("label").text))
+    automatons.append(Automaton(states.get("id"),states.get("name"),states.find("x").text,states.find("y").text,states.find("label").text,[],False))
 
 # print("\n\nTransitions")
 for t in root.iter('transition'):
