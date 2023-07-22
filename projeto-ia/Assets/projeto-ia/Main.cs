@@ -18,6 +18,8 @@ public class Main : MonoBehaviour
     public SpriteRenderer renderr;
     public Animator animacao;
     public ITransformSimple main,iFront,iBack,iBrasileirinho;
+    public AudioSource audioSource;
+    public AudioClip edu1, edu2;
     public float calcDistance,speedRot,controlSpeedRot = 1f,rotCharacter = 1;
     public float pFrontRight,pBackRight,pFrontLeft,pBackLeft,nameFixY,nameFixX,brasileirinhoX;
     public string origem,alternatePath;
@@ -158,7 +160,9 @@ public class Main : MonoBehaviour
             {
                 play.goUpDown = false;
             }
-            
+            audioSource.clip = edu1;
+            audioSource.loop = true;
+            audioSource.Play();
             play.inWay = true;
             play.canPlay = true;
             play.endUpDown = false;

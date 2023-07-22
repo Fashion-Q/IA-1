@@ -7,7 +7,7 @@ public class Play
     public int indexAutomato;
     public bool canPlay = false,inWay = false,goUpDown,goLeftRight,endLeftRight,endUpDown;
     public int countGral;
-    public float fixY = -2.5f,speed = 15;
+    public float fixY = -2.5f,speed = 7.5f;
 
     public Play(Main main)
     {
@@ -85,6 +85,9 @@ public class Play
         if(endLeftRight && endUpDown)
         {
             instance = 1;
+            main.audioSource.clip = main.edu2;
+            main.audioSource.loop = false;
+            main.audioSource.Play();
         }
         Cg = Gg;
         main.alcidesName.transform.position = Gg + new Vector3(main.nameFixX, main.nameFixY, 0);
@@ -108,7 +111,6 @@ public class Play
         main.alcidesName.transform.position = Gg + new Vector3(main.nameFixX, main.nameFixY, 0);
         main.iBrasileirinho.Gx = Gx + main.brasileirinhoX;
         main.iBrasileirinho.Gy = Gy + 0.6f;
-        main.printarTexto("?");
     }
 
     public float getIndexX()
