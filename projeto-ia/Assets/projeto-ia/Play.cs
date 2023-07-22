@@ -6,7 +6,8 @@ public class Play
     public int instance;
     public int indexAutomato;
     public bool canPlay = false,inWay = false,goUpDown,goLeftRight,endLeftRight,endUpDown;
-    public float fixY = -1.76f,speed = 15;
+    public int countGral;
+    public float fixY = -2.5f,speed = 15;
 
     public Play(Main main)
     {
@@ -30,21 +31,33 @@ public class Play
         PneuRot();
         if (endLeftRight && endUpDown)
         {
-            Gz = -main.rotCharacter;
-            if(Gz > 300f)
+            countGral++;
+            Gz = -main.rotCharacter * -main.controlSpeedRot;
+            if(countGral > 40)
             {
                 instance++;
                 inWay = false;
                 canPlay = false;
                 main.transform.eulerAngles = new Vector3();
+                main.animacao.SetBool("run", false);
+                main.main.RotReset();
+                main.iFront.RotReset();
+                main.iBack.RotReset();
+                if(indexAutomato+1 == main.profundidade.automatosGerados.Count)
+                {
+                    main.textVitoria.enabled = true;
+                }
+                countGral = 0;
             }
         }
         else
         {
-            Gz = main.rotCharacter;
-            if(Gz > 50f)
+            countGral++;
+            Gz = -main.rotCharacter * main.controlSpeedRot;
+            if (countGral > 40)
             {
                 instance++;
+                countGral = 0;
             }
         }
     }
@@ -74,21 +87,28 @@ public class Play
             instance = 1;
         }
         Cg = Gg;
-        main.alcidesName.transform.position = Gg + new Vector3(0.88f,1.5f,0);
+        main.alcidesName.transform.position = Gg + new Vector3(main.nameFixX, main.nameFixY, 0);
+        main.iBrasileirinho.Gx = Gx + main.brasileirinhoX;
+        main.iBrasileirinho.Gy = Gy + 0.6f;
         PneuRot();
     }
 
     private void PneuRot()
     {
-        main.pFront.Rotate(0, 0, main.speedRot * main.controlSpeedRot);
-        main.pBack.Rotate(0, 0, main.speedRot * main.controlSpeedRot);
+        main.iFront.RotForward = main.speedRot * main.controlSpeedRot;
+        main.iBack.RotForward = main.speedRot * main.controlSpeedRot;
     }
     private void State1()
     {
+        countGral = 0;
         instance = -1;
         Gg = new Vector3(getIndexX(),getIndexY(),0);
         main.transform.eulerAngles = new Vector3();
         Cg = Gg;
+        main.alcidesName.transform.position = Gg + new Vector3(main.nameFixX, main.nameFixY, 0);
+        main.iBrasileirinho.Gx = Gx + main.brasileirinhoX;
+        main.iBrasileirinho.Gy = Gy + 0.6f;
+        main.printarTexto("?");
     }
 
     public float getIndexX()

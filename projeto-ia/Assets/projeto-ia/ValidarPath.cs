@@ -25,11 +25,11 @@ public class ValidarPath
             validar = false;
             main.textDestino.enabled = true;
         }
-        if(main.alternatePath.Length > 0 && !File.Exists(main.alternatePath))
+        if(!File.Exists(main.alternatePath))
         {
             validar = false;
             main.textAlternatePath.enabled = true;
-            main.textLerArquivo.text = " Error ";
+            main.textLerArquivo.text = "Path inválido para leitura";
             main.textLerArquivo.enabled = true;
             
         }
@@ -52,10 +52,6 @@ public class ValidarPath
                     main.textDestino.enabled = !validarDestino;
                     main.textLerArquivo.text = "Error ao achar a(s) cidade(s): " + (!validarOrigem ? "Origem" + (!validarDestino ? " e Destino" : "") : "Destino");
                     main.textLerArquivo.enabled = true;
-                    if(main.alternatePath != main.originalPath)
-                    {
-                        main.textAlternatePath.enabled = true;
-                    }
                 }
                 else
                 {
