@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BaseDeAnimais
 {
@@ -13,12 +14,14 @@ namespace BaseDeAnimais
                 "Terrestre",
                 "Pelo",
                 false,
-                "pequeno",
+                "Pequeno",
                 "Média",
                 4,
                 false,
                 "Herbívoro"
                 ));
+            
+
             foreach (Animal animal in dados.animais)
             {
                 Console.WriteLine(
@@ -29,15 +32,36 @@ namespace BaseDeAnimais
                 animal.TonalidadePeleNormalized + " | " +
                 animal.TamanhoNormalized + " | " +
                 animal.VelocidadeNormalized + " | " +
-                animal.NumeroDePatas + " | " +
+                animal.NumeroDePatasNormalized + " | " +
                 animal.HabitoNoturnoNormalized + " | "+
                 animal.Alimentacao + "\n"
-                + "Normalizado: "+ animal.NumeroDePatasNormalized
-                + "\n"
-                );
+                + "Normalizado: "+ animal.NumeroDePatasNormalized);
+                Console.WriteLine("Around " + animal.Name + ": " + animal.Around);
             }
+            int valorDeK = 8;
+            int carnivoro = 0, herbivoro = 0, onivoro = 0;
 
-            Console.WriteLine("Hello World!");
+            for(int i=0;i<valorDeK;i++)
+            {
+                if (dados.animais[i].Alimentacao.Equals("Carnívoro"))
+                    carnivoro++;
+                else if (dados.animais[i].Alimentacao.Equals("Herbívoro"))
+                    herbivoro++;
+                else
+                    onivoro++;
+            }
+            string alimentacao;
+            if (onivoro >= herbivoro && onivoro >= carnivoro)
+                alimentacao = "Onívoro";
+            else if (herbivoro >= carnivoro && herbivoro >= onivoro)
+                alimentacao = "Herbívoro";
+            else
+                alimentacao = "Carnívoro";
+
+            Console.WriteLine("Classificação:\nCarnívoro: " + carnivoro);
+            Console.WriteLine("Herbívoro: " + herbivoro);
+            Console.WriteLine("Onívoro: " + onivoro);
+            Console.WriteLine("O animal [Macaco] foi classificado como: "+ alimentacao);
             Console.ReadKey();
         }
     }

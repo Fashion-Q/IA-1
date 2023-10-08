@@ -1,0 +1,7 @@
+C:\facul\periodo 6\IA-1\Projeto-IA-1\Projeto-IA-2\BaseDeAnimais\bin\Debug\BaseDeAnimais.exe.config
+C:\facul\periodo 6\IA-1\Projeto-IA-1\Projeto-IA-2\BaseDeAnimais\bin\Debug\BaseDeAnimais.exe
+C:\facul\periodo 6\IA-1\Projeto-IA-1\Projeto-IA-2\BaseDeAnimais\bin\Debug\BaseDeAnimais.pdb
+C:\facul\periodo 6\IA-1\Projeto-IA-1\Projeto-IA-2\BaseDeAnimais\obj\Debug\BaseDeAnimais.csproj.AssemblyReference.cache
+C:\facul\periodo 6\IA-1\Projeto-IA-1\Projeto-IA-2\BaseDeAnimais\obj\Debug\BaseDeAnimais.csproj.CoreCompileInputs.cache
+C:\facul\periodo 6\IA-1\Projeto-IA-1\Projeto-IA-2\BaseDeAnimais\obj\Debug\BaseDeAnimais.exe
+C:\facul\periodo 6\IA-1\Projeto-IA-1\Projeto-IA-2\BaseDeAnimais\obj\Debug\BaseDeAnimais.pdb

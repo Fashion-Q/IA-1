@@ -68,6 +68,6 @@
         public float HabitoNoturnoNormalized { get; set; }
         public float NumeroDePatasNormalized { get; set; }
 
-        public float Around { get; set; }
+        public double Around { get; set; }
     }
 }

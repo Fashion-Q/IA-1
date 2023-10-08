@@ -44,7 +44,17 @@ namespace BaseDeAnimais
             foreach (Animal animal in animais)
             {
                 animal.NumeroDePatasNormalized = ((float)animal.NumeroDePatas - minPatas) / (maxPatas - minPatas);
+                animal.Around = Math.Sqrt((
+                    Math.Pow(animal.HabitatNormalized - newAnimal.HabitatNormalized, 2) +
+                    Math.Pow(animal.RevestimentoNormalized - newAnimal.RevestimentoNormalized, 2) +
+                    Math.Pow(animal.TonalidadePeleNormalized - newAnimal.TonalidadePeleNormalized, 2) +
+                    Math.Pow(animal.TamanhoNormalized - newAnimal.TamanhoNormalized, 2) +
+                    Math.Pow(animal.VelocidadeNormalized - newAnimal.VelocidadeNormalized, 2) +
+                    Math.Pow(animal.HabitoNoturnoNormalized - newAnimal.HabitoNoturnoNormalized, 2) +
+                    Math.Pow(animal.NumeroDePatasNormalized - newAnimal.NumeroDePatasNormalized, 2)
+                    ));
             }
+            animais.Sort((animal1, animal2) => animal1.Around.CompareTo(animal2.Around));
         }
     }
 }
